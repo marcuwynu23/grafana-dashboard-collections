@@ -4,19 +4,19 @@
   "metadata": {
     "name": "sadlil-loki-apps-dashboard",
     "namespace": "default",
-    "uid": "c66c6e30-0dbb-4633-9a3c-8e53ef4f7d7a",
-    "resourceVersion": "1777304520379006",
+    "uid": "01fe5e88-5a28-4a6f-8744-d61e58f6d060",
+    "resourceVersion": "1777357189513000",
     "generation": 4,
-    "creationTimestamp": "2026-04-27T15:40:39Z",
+    "creationTimestamp": "2026-04-28T06:13:47Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "4155199056044032"
+      "grafana.app/deprecatedInternalID": "4374929599557632"
     },
     "annotations": {
-      "grafana.app/createdBy": "user:cfkd75ycppblse",
+      "grafana.app/createdBy": "user:ffkfczjd44veoc",
       "grafana.app/folder": "",
       "grafana.app/saved-from-ui": "Grafana v13.0.1 (a100054f)",
-      "grafana.app/updatedBy": "user:cfkd75ycppblse",
-      "grafana.app/updatedTimestamp": "2026-04-27T15:42:00Z"
+      "grafana.app/updatedBy": "user:ffkfczjd44veoc",
+      "grafana.app/updatedTimestamp": "2026-04-28T06:19:49Z"
     }
   },
   "spec": {
@@ -64,13 +64,12 @@
                       "group": "loki",
                       "version": "v0",
                       "datasource": {
-                        "name": "afkd77jlpxaf4f"
+                        "name": "cfkfd1js65reof"
                       },
                       "spec": {
                         "direction": "backward",
                         "editorMode": "code",
-                        "expr": "{job=\"express-logs\"}",
-                        "legendFormat": "",
+                        "expr": "{job=\"express-logs\"} | json",
                         "queryType": "range"
                       }
                     },
@@ -131,13 +130,12 @@
                       "group": "loki",
                       "version": "v0",
                       "datasource": {
-                        "name": "afkd77jlpxaf4f"
+                        "name": "cfkfd1js65reof"
                       },
                       "spec": {
                         "direction": "backward",
                         "editorMode": "code",
                         "expr": "sum(count_over_time({job=\"express-logs\"} [$__interval]))",
-                        "legendFormat": "",
                         "queryType": "range"
                       }
                     },
