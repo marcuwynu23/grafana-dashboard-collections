@@ -5,8 +5,8 @@
     "name": "adxrfjh",
     "namespace": "default",
     "uid": "6a2d5b83-6b78-48c9-b89f-3019fcd9e8b3",
-    "resourceVersion": "1778121974359014",
-    "generation": 40,
+    "resourceVersion": "1778123994990983",
+    "generation": 46,
     "creationTimestamp": "2026-05-07T01:58:47Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "3068649311485952"
@@ -16,7 +16,7 @@
       "grafana.app/folder": "",
       "grafana.app/saved-from-ui": "Grafana v13.0.1 (a100054f)",
       "grafana.app/updatedBy": "user:cflau1y744qo0a",
-      "grafana.app/updatedTimestamp": "2026-05-07T02:46:14Z"
+      "grafana.app/updatedTimestamp": "2026-05-07T03:19:54Z"
     }
   },
   "spec": {
@@ -1090,6 +1090,70 @@
                     "mode": "thresholds"
                   }
                 },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-19": {
+        "kind": "Panel",
+        "spec": {
+          "id": 19,
+          "title": "Fileuploader logs",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "loki",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "P8E80F9AEF21F6940"
+                      },
+                      "spec": {
+                        "direction": "backward",
+                        "editorMode": "code",
+                        "expr": "{job=\"$log_job\"}",
+                        "queryType": "range"
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "logs",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "dedupStrategy": "none",
+                "enableInfiniteScrolling": false,
+                "enableLogDetails": true,
+                "prettifyLogMessage": true,
+                "showControls": false,
+                "showFieldSelector": false,
+                "showLevel": true,
+                "showTime": false,
+                "sortOrder": "Descending",
+                "timestampResolution": "ms",
+                "unwrappedColumns": false,
+                "wrapLogMessage": false
+              },
+              "fieldConfig": {
+                "defaults": {},
                 "overrides": []
               }
             }
@@ -2176,6 +2240,32 @@
                 }
               }
             }
+          },
+          {
+            "kind": "RowsLayoutRow",
+            "spec": {
+              "title": "Logging",
+              "collapse": false,
+              "layout": {
+                "kind": "AutoGridLayout",
+                "spec": {
+                  "maxColumnCount": 3,
+                  "columnWidthMode": "standard",
+                  "rowHeightMode": "standard",
+                  "items": [
+                    {
+                      "kind": "AutoGridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-19"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
           }
         ]
       }
@@ -2216,7 +2306,20 @@
             "value": "fileuploader:2424"
           },
           "label": "instance",
-          "hide": "hideVariable",
+          "hide": "dontHide",
+          "skipUrlSync": true
+        }
+      },
+      {
+        "kind": "ConstantVariable",
+        "spec": {
+          "name": "log_job",
+          "query": "fileuploader-logs",
+          "current": {
+            "text": "fileuploader-logs",
+            "value": "fileuploader-logs"
+          },
+          "hide": "dontHide",
           "skipUrlSync": true
         }
       }
